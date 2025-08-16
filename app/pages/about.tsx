@@ -7,7 +7,7 @@ import { Paintbrush, Code, Zap, Dumbbell } from "lucide-react"
 
 export default function About() {
   return (
-    <main className="flex min-h-screen w-full bg-black flex-col items-center p-4 pt-0 relative overflow-hidden">
+    <section className="flex min-h-screen w-full bg-black flex-col items-center p-4 pt-0 relative overflow-hidden">
       <div className="flex flex-col items-center">
         <h1 className="text-6xl font-bold text-white">About <span className="text-sky-400">Me</span></h1>
         <p className="text-white">I'm a disciplinary creative who bridges the gap between design and development</p>
@@ -42,6 +42,6 @@ export default function About() {
         <h1 className="flex justify-center items-center text-4xl font-bold text-white  mt-5">Academic Achievements & <span className="text-sky-400">Highlights</span></h1>
         <ExpandableCardDemo/>
       </div>
-    </main>
+    </section>
   )
 }

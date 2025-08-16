@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="min-h-screen w-full bg-black flex items-center p-4 relative overflow-hidden">
+    <main className="min-h-screen w-full bg-black flex items-center p-4 relative overflow-hidden">
       
       <Spotlight />
       <div className="w-full px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
@@ -116,6 +116,6 @@ export default function Hero() {
           />
         </div>
       </motion.div>
-    </div>
+    </main>
   );
 }
