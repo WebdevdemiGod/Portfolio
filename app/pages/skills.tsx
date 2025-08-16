@@ -16,6 +16,11 @@ const content = [
     description: "Node.js, Supabase, PostgreSQL, etc.",
     content: <div className="text-white">API experience</div>,
   },
+  {
+    title: "",
+    description: "",
+    content: null,
+  },
 ];
 
 export default function SkillsPage() {

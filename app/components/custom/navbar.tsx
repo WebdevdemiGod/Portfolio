@@ -6,14 +6,23 @@ import Link from "next/link";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-      
-      // Update active section based on scroll position
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 10);
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      lastScrollY = currentScrollY;
       const sections = ['home', 'about', 'projects', 'skills', 'approach', 'contact'];
-      
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -28,7 +37,7 @@ export default function Navbar() {
 
     // Initial check
     handleScroll();
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,14 +46,14 @@ export default function Navbar() {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      const yOffset = -80; // Adjust this value based on your navbar height
+      const yOffset = -80; // Adjust based on navbar height
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
   const navItems = [
-    {name: "Xander", href: "hero"},
+    { name: "Xander", href: "hero" },
     { name: "About", href: "about" },
     { name: "Projects", href: "projects" },
     { name: "Skills", href: "skills" },
@@ -53,12 +62,12 @@ export default function Navbar() {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-black/80 backdrop-blur-md py-4" 
-          : "bg-transparent py-6"
-      }`}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 transform
+        ${scrolled ? "py-4" : "py-6"}
+        ${showNavbar ? "translate-y-0" : "-translate-y-full"}
+        bg-black/30 backdrop-blur-md  shadow-md
+      `}
     >
       <div className="w-full px-4 md:px-8">
         <nav className="flex justify-end space-x-8">
@@ -69,9 +78,9 @@ export default function Navbar() {
                 href={`#${item.href}`}
                 onClick={(e) => scrollToSection(e, item.href)}
                 className={`transition-colors text-sm font-medium uppercase tracking-wider ${
-                  activeSection === item.href 
-                    ? 'text-white' 
-                    : 'text-neutral-300 hover:text-white'
+                  activeSection === item.href
+                    ? "text-white"
+                    : "text-neutral-300 hover:text-white"
                 }`}
               >
                 {item.name}
