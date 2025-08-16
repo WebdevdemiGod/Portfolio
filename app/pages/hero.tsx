@@ -11,9 +11,7 @@ export default function Hero() {
       
       <Spotlight />
       <div className="w-full px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
-        {/* Left Content */}
         <div className="w-full text-left">
-          {/* Intro Line */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
