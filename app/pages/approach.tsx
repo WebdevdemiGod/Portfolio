@@ -5,8 +5,8 @@ import { CanvasRevealEffect } from "../components/ui/canvas-reveal-effect";
 
 export default function Approach() {
   return (
-    <section className="min-h-screen w-fullflex items-center p-4 relative overflow-hidden flex-col mt-20">
-      <div className="flex flex-col items-center py-8">
+    <section className="min-h-screen w-fullflex items-center p-4 relative overflow-hidden flex-col bg-black ">
+      <div className="flex flex-col items-center py-8 mt-10">
         <h1 className="text-6xl font-bold text-white">
           My <span className="text-sky-400">Approach</span>
         </h1>

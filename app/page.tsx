@@ -7,7 +7,7 @@ import Getintouch from "./pages/getintouch";
 
 export default function Home() {
   return (
-    <div className="space-y-0">
+    <div className="space-y-0 bg-black">
     
       <section id="hero">
         <Hero />
